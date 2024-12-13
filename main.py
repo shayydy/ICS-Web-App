@@ -10,20 +10,29 @@ main = Blueprint('main', __name__)
 @main.route('/')
 def index():
     return render_template('index.html')
+
+
 @main.route('/cloud')
 @login_required
 def cservices():
     return render_template('cloud.html')
+
+
 @main.route('/ICS')
 @login_required
 def icsdata():
     return render_template('ics.html')
+
+
 @main.route('/about')
 def about():
     return render_template('about.html')
+
+
 @main.route('/profile')
 @login_required
 def profile():
     return render_template('profile.html', name=current_user.name)
+
 
 migrate = Migrate(main, db)
