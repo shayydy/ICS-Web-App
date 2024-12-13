@@ -1,0 +1,181 @@
+(venv) PS C:\Users\Shay's 2021 Laptop\OneDrive\Desktop\ICS-Web-App-main\ICS-web-app-main> pylint project --recursive y --suggestion-mode y --reports y -f text
+************* Module project
+project\__init__.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+project\__init__.py:10:0: C0116: Missing function or method docstring (missing-function-docstring)
+project\__init__.py:19:4: C0415: Import outside toplevel (auth.auth) (import-outside-toplevel)
+project\__init__.py:23:4: C0415: Import outside toplevel (main.main) (import-outside-toplevel)
+project\__init__.py:29:4: C0415: Import outside toplevel (models.User) (import-outside-toplevel)
+project\__init__.py:23:4: W0611: Unused main imported from main as main_blueprint (unused-import)
+************* Module project.auth
+project\auth.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+project\auth.py:11:0: C0116: Missing function or method docstring (missing-function-docstring)
+project\auth.py:15:15: R1719: The if expression can be replaced with 'bool(test)' (simplifiable-if-expression)
+project\auth.py:30:4: W0101: Unreachable code (unreachable)
+project\auth.py:30:4: E0602: Undefined variable 'login_user' (undefined-variable)
+project\auth.py:35:0: C0116: Missing function or method docstring (missing-function-docstring)  
+project\auth.py:62:0: C0116: Missing function or method docstring (missing-function-docstring)
+project\auth.py:4:0: C0411: third party import "werkzeug.security.generate_password_hash" should be placed before local import "models.User" (wrong-import-order)
+project\auth.py:1:0: W0611: Unused Flask imported from flask (unused-import)
+project\auth.py:1:0: W0611: Unused render_template imported from flask (unused-import)
+************* Module project.main
+project\main.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+project\main.py:3:0: W0404: Reimport 'Blueprint' (imported line 1) (reimported)
+project\main.py:11:0: C0116: Missing function or method docstring (missing-function-docstring)
+project\main.py:17:0: C0116: Missing function or method docstring (missing-function-docstring)
+project\main.py:23:0: C0116: Missing function or method docstring (missing-function-docstring)  
+project\main.py:28:0: C0116: Missing function or method docstring (missing-function-docstring)  
+project\main.py:34:0: C0116: Missing function or method docstring (missing-function-docstring)  
+project\main.py:3:0: C0412: Imports from package flask are not grouped (ungrouped-imports)
+project\main.py:1:0: W0611: Unused Flask imported from flask (unused-import)
+project\main.py:1:0: W0611: Unused redirect imported from flask (unused-import)
+project\main.py:1:0: W0611: Unused url_for imported from flask (unused-import)
+************* Module project.models
+project\models.py:5:48: C0303: Trailing whitespace (trailing-whitespace)
+project\models.py:1:0: C0114: Missing module docstring (missing-module-docstring)
+project\models.py:4:0: C0115: Missing class docstring (missing-class-docstring)
+project\models.py:4:0: R0903: Too few public methods (0/2) (too-few-public-methods)
+project\models.py:1:0: R0401: Cyclic import (project -> project.models) (cyclic-import)
+project\models.py:1:0: R0401: Cyclic import (project -> project.auth) (cyclic-import)
+project\models.py:1:0: R0401: Cyclic import (project -> project.main) (cyclic-import)
+
+
+Report
+======
+75 statements analysed.
+
+Statistics by type
+------------------
+
++---------+-------+-----------+-----------+------------+---------+
+|type     |number |old number |difference |%documented |%badname |
++=========+=======+===========+===========+============+=========+
+|module   |4      |NC         |NC         |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|class    |1      |NC         |NC         |0.00        |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+|method   |0      |NC         |NC         |0           |0        |
++---------+-------+-----------+-----------+------------+---------+
+|function |10     |NC         |NC         |10.00       |0.00     |
++---------+-------+-----------+-----------+------------+---------+
+
+
+
+External dependencies
+---------------------
+::
+
+    flask (project,project.auth,project.main)
+    flask_login (project,project.main)
+    flask_migrate (project.main)
+    flask_sqlalchemy (project)
+    werkzeug
+      \-security (project.auth)
+
+
+
+158 lines have been analyzed
+
+Raw metrics
+-----------
+
++----------+-------+------+---------+-----------+
+|type      |number |%     |previous |difference |
++==========+=======+======+=========+===========+
+|code      |96     |60.76 |NC       |NC         |
++----------+-------+------+---------+-----------+
+|docstring |0      |0.00  |NC       |NC         |
++----------+-------+------+---------+-----------+
+|comment   |19     |12.03 |NC       |NC         |
++----------+-------+------+---------+-----------+
+|empty     |43     |27.22 |NC       |NC         |
++----------+-------+------+---------+-----------+
+
+
+
+Duplication
+-----------
+
++-------------------------+------+---------+-----------+
+|                         |now   |previous |difference |
++=========================+======+=========+===========+
+|nb duplicated lines      |0     |NC       |NC         |
++-------------------------+------+---------+-----------+
+|percent duplicated lines |0.000 |NC       |NC         |
++-------------------------+------+---------+-----------+
+
+
+
+Messages by category
+--------------------
+
++-----------+-------+---------+-----------+
+|type       |number |previous |difference |
++===========+=======+=========+===========+
+|convention |20     |NC       |NC         |
++-----------+-------+---------+-----------+
+|refactor   |5      |NC       |NC         |
++-----------+-------+---------+-----------+
+|warning    |8      |NC       |NC         |
++-----------+-------+---------+-----------+
+|error      |1      |NC       |NC         |
++-----------+-------+---------+-----------+
+
+
+
+% errors / warnings by module
+-----------------------------
+
++---------------+-------+--------+---------+-----------+
+|module         |error  |warning |refactor |convention |
++===============+=======+========+=========+===========+
+|project.auth   |100.00 |37.50   |20.00    |25.00      |
++---------------+-------+--------+---------+-----------+
+|project.main   |0.00   |50.00   |0.00     |35.00      |
++---------------+-------+--------+---------+-----------+
+|project        |0.00   |12.50   |0.00     |25.00      |
++---------------+-------+--------+---------+-----------+
+|project.models |0.00   |0.00    |80.00    |15.00      |
++---------------+-------+--------+---------+-----------+
+
+
+
+Messages
+--------
+
++---------------------------+------------+
+|message id                 |occurrences |
++===========================+============+
+|missing-function-docstring |9           |
++---------------------------+------------+
+|unused-import              |6           |
++---------------------------+------------+
+|missing-module-docstring   |4           |
++---------------------------+------------+
+|import-outside-toplevel    |3           |
++---------------------------+------------+
+|cyclic-import              |3           |
++---------------------------+------------+
+|wrong-import-order         |1           |
++---------------------------+------------+
+|unreachable                |1           |
++---------------------------+------------+
+|ungrouped-imports          |1           |
++---------------------------+------------+
+|undefined-variable         |1           |
++---------------------------+------------+
+|trailing-whitespace        |1           |
++---------------------------+------------+
+|too-few-public-methods     |1           |
++---------------------------+------------+
+|simplifiable-if-expression |1           |
++---------------------------+------------+
+|reimported                 |1           |
++---------------------------+------------+
+|missing-class-docstring    |1           |
++---------------------------+------------+
+
+
+
+
+-----------------------------------
+Your code has been rated at 4.93/10
