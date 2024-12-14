@@ -1,9 +1,8 @@
 File structure should look like:
 
-Project 1
-      .dotenv
-      run.py
-      Project(dir)
+Project
+      pyproject.toml
+      webapp(dir)
             base.py
             main.py
             __init__.py
@@ -11,6 +10,15 @@ Project 1
             auth.py
             venv(dir)
             __pycache__(dir)
+            templates(dir)
+                  base.html
+                  home.html
+                  about.html
+                  signup.html
+                  login.html
+                  ics.html
+                  cloud.html
+                  404.html
 
 Package             Version
 ------------------- ---------
