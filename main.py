@@ -1,15 +1,20 @@
-from flask import Flask, render_template, Blueprint, redirect, url_for
+from flask import Flask, render_template, Blueprint, redirect, url_for, Blueprint
+from jinja2 import TemplateNotFound
 from flask_migrate import Migrate
-from flask import Blueprint
 from flask_login import login_required, current_user
 from . import db
 
-main = Blueprint('main', __name__)
 
+main = Blueprint('main', __name__,
+                        template_folder='templates')
 
-@main.route('/')
-def index():
-    return render_template('index.html')
+@main.route('/', defaults={'page': 'home'})
+@main.route('/home')
+def show(page):
+    try:
+        return render_template(f'main/{page}.html')
+    except TemplateNotFound:
+        return render_template('404.html'), 404
 
 
 @main.route('/cloud')
@@ -18,9 +23,9 @@ def cservices():
     return render_template('cloud.html')
 
 
-@main.route('/ICS')
+@main.route('/ics')
 @login_required
-def icsdata():
+def ics():
     return render_template('ics.html')
 
 
