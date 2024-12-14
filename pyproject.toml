@@ -1,0 +1,11 @@
+[project]
+name = "webapp"
+dependencies = [
+    "flask", "flask-login", "flask-sqlalchemy", "flask-migrate"
+]
+version = "1.0.0"
+description = "a simple web application to demonstrate security in software development"
+
+[build-system]
+requires = ["flit_core<4"]
+build-backend = "flit_core.buildapi"
