@@ -1,7 +1,7 @@
 [project]
 name = "webapp"
 dependencies = [
-    "flask", "flask-login", "flask-sqlalchemy", "flask-migrate"
+    "flask", "flask-login", "flask-sqlalchemy", "flask-migrate", "flask-wtf"
 ]
 version = "1.0.0"
 description = "a simple web application to demonstrate security in software development"
