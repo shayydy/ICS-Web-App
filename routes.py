@@ -35,7 +35,7 @@ def about():
     return render_template('about.html', title='About')
 
 
-@app.route('/ics')  
+@app.route('/ics')
 def ics():
     # Your route logic for generating the ICS file goes here
     return render_template('ics.html', title='ICS Results')
@@ -60,6 +60,7 @@ def login():
         else:
             flash('Login Unsuccessful. Please check username and password', 'danger')
     return render_template('login.html', title='Login', form=form)
+
 
 @app.route('/cloud')
 def cloud():
