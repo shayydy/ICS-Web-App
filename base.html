@@ -1,14 +1,18 @@
-<!DOCTYPE html>
+<!DOCTYPE html>  # This code provides inherited code for use in the other pages
 <html>
 
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if title %}
+    <title>ICS Data - {{title}}</title>
+    {% else %}
     <title>ICS Data</title>
+    {% endif %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
 </head>
-
+{% block navbar %}
 <body>
     <section class="hero is-primary is-fullheight">
 
@@ -16,39 +20,33 @@
             <nav class="navbar">
                 <div class="container">
                     <div id="navbarMenuHeroA" class="navbar-menu">
-                        <div class="navbar-end">
-                            <a href="{{ url_for('main.home') }}" class="navbar-item">
+                        
+                            <a href="{{ url_for('home') }}" class="navbar-item">
                                 Home
                             </a>
-                            <a href="{{ url_for('main.about') }}" class="navbar-item">
+                            <a href="{{ url_for('about') }}" class="navbar-item">
                                 About
                             </a>
-                            <a href="{{ url_for('main.cloud') }}" class="navbar-item">
-                                Cloud Services
-                            </a>
-                            <a href="{{ url_for('main.ics') }}" class="navbar-item">
+                            <a href="{{ url_for('ics') }}" class="navbar-item">
                                 ICS Results
                             </a>
-                            <a href="{{ url_for('auth.login') }}" class="navbar-item">
+                            <a href="{{ url_for('login') }}" class="navbar-item">
                                 Login
                             </a>
-                            <a href="{{ url_for('auth.signup') }}" class="navbar-item">
+                            <a href="{{ url_for('signup') }}" class="navbar-item">
                                 Sign Up
-                            </a>
-                            <a href="{{ url_for('auth.logout') }}" class="navbar-item">
-                                Logout
+
+                                <div class="navbar-end"></div>
                             </a>
                         </div>
                     </div>
                 </div>
             </nav>
         </div>
-
+{% endblock navbar %}
         <div class="hero-body">
             <div class="container has-text-centered">
-               {% block content %}
-               {% endblock %}
-            </div>
+             </div>
         </div>
     </section>
 </body>
